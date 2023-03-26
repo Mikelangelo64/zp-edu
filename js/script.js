@@ -268,6 +268,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //issue close
+  const issueArr = document.querySelectorAll('.issue');
+  if (issueArr.length !== 0) {
+    issueArr.forEach((issue) => {
+      const closeButton = issue.querySelector('.issue__close');
+      if (!closeButton) {
+        return;
+      }
+
+      closeButton.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        issue.classList.add('_hidden');
+      });
+    });
+  }
+
   //search popup
   const searchButton = document.body.querySelector('.header__btn__search');
   const searchPopup = document.body.querySelector('.popup-search');
